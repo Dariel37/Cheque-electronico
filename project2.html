@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+<style type="text/css">
+.bgimg { 
+  background-image: url("https://designerchecks-res.cloudinary.com/image/upload/f_auto,fl_lossy,q_auto/v1/product/check/blue-classic-check-1");
+   height:500px; 
+   width:860px ; 
+   background-repeat: no-repeat;
+   } 
+   #dat {
+   position: absolute;
+   margin-top:6%;
+   margin-left:30%;
+   margin-middle:;
+   width:25% ;
+   height:;
+   }
+   #demo{
+   position: absolute;
+   margin-top:10%;
+   margin-left:11.5%;
+   margin-middle:;
+   width:33% ;
+   height:4%;
+   }
+   #for{
+   position: absolute;
+   margin-top:21%;
+   margin-left:6.5%;
+   margin-middle:;
+   width:25% ;
+   height:4%;
+   }
+   #dollar{
+   position: absolute;
+   margin-top: 9.4%;
+   margin-left: 47.5%;
+   margin-middle:;
+   width:10.5%;
+   height:6%;
+   }
+   #dollartext{
+   position: absolute;
+   margin-top:13.5% ;
+   margin-left:3% ;
+   margin-middle:;
+   width:44.7%;
+   height:4%;
+   }
+   
+   #submit{
+   position: absolute;
+   margin-top:24% ;
+   margin-left:15% ;
+   margin-middle:;
+   width:5;
+   height:4%;
+   }
+   
+   
+   
+</style>
+
+
+
+<body>
+<article>
+<form action="https://www.w3schools.com/action_page.php">
+<input type="date" name="date" id="dat">
+<input type = "text" name= "for" id= "for" minlength="8" maxlength="30"  onkeypress="return sololetras(event)" onpaste="return false"  >
+<input type = "quantity" name="dollar" id="dollar" minlength="0" maxlength="13" onkeypress="return solonumeros(event)" onpaste="return false">
+<input type = "text" name="dolltex" id="dollartext" minlength="8" maxlength="50"  onkeypress="return sololetrass(event)" onpaste="return false"      >
+
+
+
+<div class="bgimg"><center>
+<p  id="demo"></center></p>
+
+
+<input id="demo" type="text" minlength="8" maxlength="30"  onkeypress="return sololetras(event)"  onpaste="return false" >
+<center> <button type="submit" value="Submit" onclick="sololetras(e)" id="submit"  >Submit</button></center>
+
+<p id="p01"></p>
+
+<script>
+
+function solonumeros(e){
+
+key=e.keyCode || e.which;
+
+teclado=String.fromCharCode(key);
+
+numeros="$,.0123456789";
+
+especiales="8-37-38-46";
+
+teclado_especial=false;
+
+
+ for(var i in especiales){
+   if(key==especiales[i]){
+    teclado_especial=true;
+
+    }
+
+
+  }
+     if (numeros.indexOf(teclado)==-1 && !teclado_especial){
+	    return false;
+	 }
+}
+
+
+function sololetras(e){
+
+key=e.keyCode || e.which;
+
+teclado=String.fromCharCode(key).toLowerCase();
+
+letras= " abcdefghijklmnopqrstuvwxyz";
+
+especiales="8-37-38-46-164";
+
+teclado_especial=false;
+
+for(var i in especiales){
+    
+   if(key==especiales[i]){
+    teclado_especial= true; break;
+    }
+
+   }
+   if(letras.indexOf(teclado)==-1 && !teclado_especial)
+   {
+   return false;
+   }
+   
+}
+
+
+
+
+
+
+function sololetrass(e){
+
+key=e.keyCode || e.which;
+
+teclado=String.fromCharCode(key).toLowerCase();
+
+letras= " abcdefghijklmnopqrstuvwxyz-/10";
+
+especiales="8-37-38-46-164";
+
+teclado_especial=false;
+
+for(var i in especiales){
+    
+   if(key==especiales[i]){
+    teclado_especial= true; break;
+    }
+
+   }
+   if(letras.indexOf(teclado)==-1 && !teclado_especial)
+   {
+   return false;
+   }
+   
+  document.getElementById("demo").innerHTML = "ok".fontcolor("green");
+}
+
+
+
+
+
+
+function myFunction() {
+    var message, x,flag=0,text="";
+    message = document.getElementById("p01");
+    message.innerHTML = "";
+    x = document.getElementById("demo").value;
+    try { 
+        if(x == "")  throw "is empty";
+        if(isNaN(x)) throw "is not a number";
+        x = Number(x);
+        if(x > 10)   throw "is too high";
+        if(x < 5)    throw "is too low";
+    }
+    catch(err) {
+    text= "Input" +String(err);
+        message.innerHTML = text.fontcolor("red");
+        flag=1;
+    }
+    finally {
+        document.getElementById("demo").value = "";
+        if (flag==0)
+         document.getElementById("demo").innerHTML = "ok".fontcolor("green");
+    }
+	
+	
+	
+	/*function test(){
+	var message, letters,flag=0 text"";
+	message = document.getElementById("Submit");
+    message.innerHTML = "";
+	letters = "abcdefghijklmnopqrstuvwxyz"
+	try{
+	   if(letters > 30)throw "is full";
+	   if (letters < 5)throw "is low";
+	
+	
+	}
+	   catch(err) {
+    text= "Input" +String(err);
+        message.innerHTML = text.fontcolor("red");
+        flag=1;
+	
+	}
+	finally {
+        document.getElementById("demo").value = "";
+        if (flag==0)
+         document.getElementById("demo").innerHTML = "ok".fontcolor("green");
+    }
+	
+	
+	
+	}
+	*/	
+}
+
+</script>
+
+
+
+
+</article>
+</body>
+</html>
+
+
